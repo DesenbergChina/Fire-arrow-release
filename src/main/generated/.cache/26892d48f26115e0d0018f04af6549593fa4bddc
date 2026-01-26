@@ -1,0 +1,5 @@
+// 1.21.11	-999999999-01-01T00:00:00	Fire-Arrow/Fire Arrow Recipes
+2e8190d931be02266368e749fa51b2888cbb3671 data/fire-arrow/advancement/recipes/combat/explosive_arrow.json
+7e30c1735b0c76e9531d7767c856a2516b2ea982 data/fire-arrow/advancement/recipes/combat/small_fireball_arrow.json
+a6adfce8789a69ba7ed2fc65f1f9babd0057fa66 data/fire-arrow/recipe/explosive_arrow.json
+458d112c71f65ccba08adfe4bce0e7e379cf6278 data/fire-arrow/recipe/small_fireball_arrow.json

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:fire_charge",
+    "minecraft:arrow"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fire-arrow:small_fireball_arrow"
+  }
+}

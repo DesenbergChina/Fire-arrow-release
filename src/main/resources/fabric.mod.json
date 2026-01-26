@@ -1,0 +1,51 @@
+{
+	"schemaVersion": 1,
+	"id": "fire-arrow",
+	"version": "${version}",
+	"name": "Fire-Arrow",
+	"description": "没错!这是“火箭”! 一个添加了两种新箭的贴近原版的MOD,一款秉持 “少即是多” 理念的原版向模组，仅新增两种实用新箭，却让冒险更具趣味！",
+	"authors": [
+		{ "name": "Yes_Muscle",
+		  "contact": { "email": "desenberg@163.com" }
+		}
+	],
+	"contact": {
+		"homepage": "",
+		"sources": "https://gitee.com/desenberg/fire-arrow-release",
+		"issues": ""
+
+	},
+	"license": [
+		"codeLicense:MIT",
+		"assetsLicense:CC-BY-NC-ND 4.0"
+	],
+	"custom": {
+		"assetsLicense": "CC-BY-NC-ND 4.0"
+	},
+	"icon": "assets/fire-arrow/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"firearrow.mod.FireArrow"
+		],
+		"client": [
+			"firearrow.mod.FireArrowClient"
+		],
+		"fabric-datagen": [
+			"firearrow.mod.FireArrowDataGenerator"
+		]
+	},
+	"mixins": [
+		"fire-arrow.mixins.json",
+		{
+			"config": "fire-arrow.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:gunpowder",
+    "minecraft:arrow"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fire-arrow:explosive_arrow"
+  }
+}
