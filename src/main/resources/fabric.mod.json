@@ -10,9 +10,9 @@
 		}
 	],
 	"contact": {
-		"homepage": "",
+		"homepage": "https://gitee.com/desenberg",
 		"sources": "https://gitee.com/desenberg/fire-arrow-release",
-		"issues": ""
+		"issues": "https://gitee.com/desenberg/fire-arrow-release/issues"
 
 	},
 	"license": [
