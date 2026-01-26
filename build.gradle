@@ -9,7 +9,7 @@ group = project.maven_group
 
 // 定义所有需要的占位符属性
 ext {
-    modmenu_version = ">=10.0.0" // 补充 modmenu 版本
+    modmenu_versions = ">=10.0.0" // 补充 modmenu 版本
     codeLicense = "MIT" // 可选：之前的许可证配置
     assetsLicense = "CC-BY-NC-ND-4.0"
 }
@@ -60,8 +60,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	//modImplementation "maven.modrinth:modmenu:${project.modmenu_version}"
-	//modImplementation "maven.modrinth:placeholder-api:${project.placeholder_api_version}"
+	modRuntimeOnly "maven.modrinth:modmenu:${project.modmenu_version}"
+	modRuntimeOnly "maven.modrinth:placeholder-api:${project.placeholder_api_version}"
 	//modImplementation "maven.modrinth:cloth-config:${project.cloth_config_version}"
 	// modImplementation "maven.modrinth:wthit:${project.wthit_version}"
 	// modImplementation "maven.modrinth:badpackets:${project.badpackets_version}"
@@ -72,16 +72,14 @@ dependencies {
 
 processResources {
 	inputs.property "version", project.version
-	inputs.property "modmenu_version", project.modmenu_version
-	inputs.property "placeholder_api_version", project.placeholder_api_version
+	inputs.property "modmenu_versions", project.ext.modmenu_versions
     inputs.property "codeLicense", project.ext.codeLicense
     inputs.property "assetsLicense", project.ext.assetsLicense
 
 
 	filesMatching("fabric.mod.json") {
 		expand ("version": inputs.properties.version,
-		"modmenu_version": project.ext.modmenu_version,
-		"placeholder_api_version": project.ext.placeholder_api_version,
+		"modmenu_version":inputs.properties.modmenu_versions,
 		)
 	}
 }
@@ -128,13 +126,59 @@ publishing {
 
 publishMods {
     changelog = "# Markdown changelog content"
-    type = STABLE
+    type = ALPHA
 	file = remapJar.archiveFile
     modLoaders.add("fabric")
 
 	modrinth {
-        accessToken = providers.environmentVariable("MODRINTH_API_KEY")
-        projectId = "12345678"
-        minecraftVersions.add("1.20.1")
+	
+        accessToken = providers.gradleProperty("modrinthToken")
+        projectId = "vU4AEXJI"
+        minecraftVersions.add("1.21.11")
+
+		// Optionally set the announcement title used by the discord publisher
+        //announcementTitle = "Download from Modrinth"
+ 
+        // Optionally update the project description after publishing a file
+        // This can be useful if you want to sync your Github readme with the Modrinth project description
+        projectDescription = providers.fileContents(layout.projectDirectory.file("Readme.md")).asText
+ 
+        // You can specify a range of Minecraft versions like so:
+        /*
+		minecraftVersionRange {
+            start = "1.21.11"
+            end = "1.21.11" // Set to "latest" to use the latest minecraft version
+            // Optionally include snapshot versions, defaults to false
+            includeSnapshots = false
+        }
+		*/
+ 
+        // You can specify either the project id OR slug, but not both.
+		/*
+        requires {
+            //id = ""
+            //slug = "project-slug"
+ 
+            // You can optionally specify a version id or name for the dependency
+            //version = "IIJJKKLL"
+        }
+        optional {
+            //id = "12345678"
+            //slug = "Mod Menu"
+        }
+        incompatible {
+            //id = "12345678"
+            //slug = "project-slug"
+        }
+        embeds {
+            //id = "12345678"
+            //slug = "project-slug"
+        }
+ 		*/
+        // You can use the shortened method if you only need to specify the slug
+        requires("fabric-api")
+        optional("modmenu")
+        // incompatible("project-slug")
+        // embeds("project-slug")
     }
 }
