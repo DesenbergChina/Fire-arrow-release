@@ -6,14 +6,13 @@
 	"description": "没错!这是“火箭”! 一个添加了两种新箭的贴近原版的MOD,一款秉持 “少即是多” 理念的原版向模组，仅新增两种实用新箭，却让冒险更具趣味！",
 	"authors": [
 		{ "name": "Yes_Muscle",
-		  "contact": { "email": "desenberg@163.com" }
+			"contact": { "email": "desenberg@163.com" }
 		}
 	],
 	"contact": {
 		"homepage": "https://gitee.com/desenberg",
 		"sources": "https://gitee.com/desenberg/fire-arrow-release",
 		"issues": "https://gitee.com/desenberg/fire-arrow-release/issues"
-
 	},
 	"license": [
 		"codeLicense:MIT",

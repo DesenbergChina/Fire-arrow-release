@@ -125,6 +125,14 @@ publishing {
 }
 
 publishMods {
+	def changelogFile = file("changelog.md")
+	// 检查文件存在性（避免读取不存在的文件抛异常）
+	if (changelogFile.exists()) {
+		def content = changelogFile.asText
+		println("更新日志内容：\n$content")
+	} else {
+		println("changelog.md 文件不存在！")
+	}
     changelog = "# Markdown changelog content"
     type = ALPHA
 	file = remapJar.archiveFile
