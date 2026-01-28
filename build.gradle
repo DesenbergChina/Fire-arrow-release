@@ -127,26 +127,28 @@ publishing {
 publishMods {
 	def changelogFile = file("changelog.md")
 	// 检查文件存在性（避免读取不存在的文件抛异常）
-	if (changelogFile.exists()) {
-		def content = changelogFile.asText
-		println("更新日志内容：\n$content")
-	} else {
-		println("changelog.md 文件不存在！")
-	}
+	// if (changelogFile.exists()) {
+	// 	def content = changelogFile.asText
+	// 	println("更新日志内容：\n$content")
+	// } else {
+	// 	println("changelog.md 文件不存在！")
+	// }
+
     changelog = "# Markdown changelog content"
     type = ALPHA
 	file = remapJar.archiveFile
     modLoaders.add("fabric")
-
+	// The display name/release title, this defaults to the Gradle project name + version
+    //displayName = "My Mod"
 	modrinth {
 	
         accessToken = providers.gradleProperty("modrinthToken")
         projectId = "vU4AEXJI"
-        minecraftVersions.add("1.21.11")
+			minecraftVersions.add("1.21.11")
+		// Add dependencies to your project
+		requires("fabric-api")
+		optional("modmenu")
 
-		// Optionally set the announcement title used by the discord publisher
-        //announcementTitle = "Download from Modrinth"
- 
         // Optionally update the project description after publishing a file
         // This can be useful if you want to sync your Github readme with the Modrinth project description
         projectDescription = providers.fileContents(layout.projectDirectory.file("Readme.md")).asText
@@ -184,9 +186,49 @@ publishMods {
         }
  		*/
         // You can use the shortened method if you only need to specify the slug
-        requires("fabric-api")
-        optional("modmenu")
+
         // incompatible("project-slug")
         // embeds("project-slug")
     }
+
+	curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        projectId = "123456"
+			minecraftVersions.add("1.21.11")
+		// Add dependencies to your project
+		requires("fabric-api")
+		optional("modmenu")
+ 
+        // You can specify a range of Minecraft versions like so:
+        // minecraftVersionRange {
+        //     start = "1.19.4"
+        //     end = "1.20.2" // Set to "latest" to use the latest minecraft version
+        // }
+
+        // Optionally specify the java version that is required to run the mod
+        javaVersions.add(JavaVersion.VERSION_21)
+ 
+        // Optionally specify an environment that is required to run the mod
+        clientRequired = true
+        serverRequired = true
+ 
+        // When using the discord webhook you must also specify the project slug
+        // This is due to limitations in the CurseForge API.
+        //projectSlug = "test-mod"
+
+        // Set a changelog using text, markdown, or html (defaults to markdown)
+        //changelog = "# Markdown changelog content"
+        changelogType = "markdown"
+ 
+        // Set the display name of an additional file
+        additionalFile(jar) {
+            name = "Fabric"
+        }
+ 
+        // Set the display name of an additional file from another project
+        // additionalFile(project(":child")) {
+        //     name = "Fabric"
+        // }
+    }
+
 }
