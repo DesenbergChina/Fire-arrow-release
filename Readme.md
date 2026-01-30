@@ -1,5 +1,7 @@
 # FireArrow
 
+English(Readme_EN.md)
+
 ## mod说明
 
 一款秉持 “少即是多” 理念的原版向模组，仅新增两种实用新箭，却让冒险更具趣味！
