@@ -46,7 +46,7 @@ public class SmallfireballArrowEntity extends ArrowEntity {
         return new ItemStack(FireArrow.SMALL_FIREBALL_ARROW);
     }
 
-    // 击中实体时让其着火并生成小火球
+    // 因为可能生物靠的太近了，此时需要这个逻辑生成小火球
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult); // 先调用父类逻辑（造成伤害）
@@ -66,9 +66,6 @@ public class SmallfireballArrowEntity extends ArrowEntity {
             );
             fireball.setOwner(this.getOwner());
             this.getEntityWorld().spawnEntity(fireball);
-
-            // 3. 销毁箭矢（避免箭还插在实体身上）
-            this.discard();
         }
     }
 
@@ -81,13 +78,12 @@ public class SmallfireballArrowEntity extends ArrowEntity {
         // 如果你想要箭插在方块上时冒火焰粒子，可以在这里添加粒子效果
     }
 
-    // 可选：飞行过程中显示火焰粒子效果
     @Override
     public void tick() {
         super.tick();
-
-        // 在客户端显示火焰粒子轨迹
-        if (this.getEntityWorld().isClient() && (!this.isOnGround() || !this.isInGround())) {
+        // 在客户端显示箭的火焰粒子效果
+        if (this.getEntityWorld().isClient() && (!this.isOnGround() ||
+                !this.isInGround())) {
             this.getEntityWorld().addParticleClient(
                     net.minecraft.particle.ParticleTypes.FLAME,
                     this.getX(),
@@ -102,18 +98,18 @@ public class SmallfireballArrowEntity extends ArrowEntity {
             // 确保有速度才生成，否则火球会悬空
             if (velocity.lengthSquared() > 0.1) {
                 // 生成火球
-                // [!code focus] 同样这里也用 getEntityWorld()
                 SmallFireballEntity fireball = new SmallFireballEntity(
                         this.getEntityWorld(),
                         this.getX(), this.getY(), this.getZ(),
                         velocity.normalize().multiply(1.5) // 火球飞行速度
                 );
-
+                // 2. 继承发射者（这样火球算玩家的伤害，且不会一开始炸到玩家）
                 fireball.setOwner(this.getOwner());
-                this.getEntityWorld().spawnEntity(fireball); // [!code focus] 还有这里
+                // 3. 生成火球
+                this.getEntityWorld().spawnEntity(fireball);
 
+                // 4. 标记已生成并在本 tick 结束时销毁箭矢
                 ifFireballSpawned = true;
-
                 // 生成火球后销毁箭矢，让视觉效果变成“射出火球”
                 this.discard();
             }

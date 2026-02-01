@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "fire-arrow:item/fireball_arrow"
+  }
+}

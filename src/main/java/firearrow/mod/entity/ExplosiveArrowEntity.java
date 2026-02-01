@@ -55,9 +55,9 @@ public class ExplosiveArrowEntity extends ArrowEntity {
         super.onHit(target);
         // 爆炸逻辑
         if (!this.getEntityWorld().isClient()) {
-            this.getEntityWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), 3.0F,
+
+            this.getEntityWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), 3.3F,
                     World.ExplosionSourceType.TNT);
-            this.discard(); // 爆炸后销毁箭矢
         }
     }
 

@@ -11,8 +11,10 @@ package firearrow.mod;
 
 import firearrow.mod.entity.ExplosiveArrowEntity;
 import firearrow.mod.entity.SmallfireballArrowEntity;
+import firearrow.mod.entity.FireballArrowEntity;
 import firearrow.mod.item.ExplosiveArrowItem;
 import firearrow.mod.item.SmallfireballArrowItem;
+import firearrow.mod.item.FireballArrowItem;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EntityType;
@@ -45,6 +47,8 @@ public class FireArrow implements ModInitializer {
 			Identifier.of(MOD_ID, "explosive_arrow"));
 	public static final RegistryKey<Item> SMALL_FIREBALL_ARROW_KEY = RegistryKey.of(RegistryKeys.ITEM,
 			Identifier.of(MOD_ID, "small_fireball_arrow"));
+	public static final RegistryKey<Item> FIREBALL_ARROW_KEY = RegistryKey.of(RegistryKeys.ITEM,
+			Identifier.of(MOD_ID, "fireball_arrow"));
 
 	// Entities Keys
 	public static final RegistryKey<EntityType<?>> EXPLOSIVE_ARROW_ENTITY_KEY = RegistryKey.of(RegistryKeys.ENTITY_TYPE,
@@ -52,12 +56,17 @@ public class FireArrow implements ModInitializer {
 	public static final RegistryKey<EntityType<?>> SMALL_FIREBALL_ARROW_ENTITY_KEY = RegistryKey.of(
 			RegistryKeys.ENTITY_TYPE,
 			Identifier.of(MOD_ID, "small_fireball_arrow"));
+	public static final RegistryKey<EntityType<?>> FIREBALL_ARROW_ENTITY_KEY = RegistryKey.of(
+			RegistryKeys.ENTITY_TYPE,
+			Identifier.of(MOD_ID, "fireball_arrow"));
 
 	// Items: 使用 .registryKey(KEY) 将 ID 绑定到 Item.Settings
 	public static final Item EXPLOSIVE_ARROW = registerItem(EXPLOSIVE_ARROW_KEY,
 			new ExplosiveArrowItem(new Item.Settings().registryKey(EXPLOSIVE_ARROW_KEY)));
 	public static final Item SMALL_FIREBALL_ARROW = registerItem(SMALL_FIREBALL_ARROW_KEY,
 			new SmallfireballArrowItem(new Item.Settings().registryKey(SMALL_FIREBALL_ARROW_KEY)));
+	public static final Item FIREBALL_ARROW = registerItem(FIREBALL_ARROW_KEY,
+			new FireballArrowItem(new Item.Settings().registryKey(FIREBALL_ARROW_KEY)));
 
 	// Entities: EntityType.Builder.build(KEY) 必须传入 Key
 	public static final EntityType<ExplosiveArrowEntity> EXPLOSIVE_ARROW_ENTITY = registerEntity(
@@ -71,6 +80,12 @@ public class FireArrow implements ModInitializer {
 					.<SmallfireballArrowEntity>create(SmallfireballArrowEntity::new, SpawnGroup.MISC)
 					.dimensions(0.5f, 0.5f)
 					.build(SMALL_FIREBALL_ARROW_ENTITY_KEY));
+
+	public static final EntityType<FireballArrowEntity> FIREBALL_ARROW_ENTITY = registerEntity(
+			FIREBALL_ARROW_ENTITY_KEY, EntityType.Builder
+					.<FireballArrowEntity>create(FireballArrowEntity::new, SpawnGroup.MISC)
+					.dimensions(0.5f, 0.5f)
+					.build(FIREBALL_ARROW_ENTITY_KEY));
 
 	// 辅助方法：注册物品
 	private static Item registerItem(RegistryKey<Item> key, Item item) {
@@ -109,6 +124,7 @@ public class FireArrow implements ModInitializer {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
 			entries.add(EXPLOSIVE_ARROW);
 			entries.add(SMALL_FIREBALL_ARROW);
+			entries.add(FIREBALL_ARROW);
 		});
 
 		LOGGER.info("Fire Arrow mod initialized!(“火箭”模组初始化完成！)");

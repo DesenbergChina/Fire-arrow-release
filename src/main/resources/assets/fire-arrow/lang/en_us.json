@@ -1,6 +1,8 @@
 {
-  "item.firearrow.explosive_arrow": "Explosive Arrow",
-  "item.firearrow.small_fireball_arrow": "Smallfireball Arrow",
-  "entity.firearrow.explosive_arrow": "Explosive Arrow",
-  "entity.firearrow.small_fireball_arrow": "Smallfireball Arrow"
+  "item.fire-arrow.explosive_arrow": "Explosive Arrow",
+  "item.fire-arrow.small_fireball_arrow": "Smallfireball Arrow",
+  "item.fire-arrow.fireball_arrow": "Fireball Arrow",
+  "entity.fire-arrow.explosive_arrow": "Explosive Arrow",
+  "entity.fire-arrow.small_fireball_arrow": "Smallfireball Arrow",
+  "entity.fire-arrow.fireball_arrow": "Fireball Arrow"
 }

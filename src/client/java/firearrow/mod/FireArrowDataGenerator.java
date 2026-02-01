@@ -17,6 +17,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.data.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -50,6 +51,7 @@ public class FireArrowDataGenerator implements DataGeneratorEntrypoint {
         @Override
         protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registries,
                 RecipeExporter exporter) {
+
             return new RecipeGenerator(registries, exporter) {
                 @Override
                 public void generate() {
@@ -72,8 +74,33 @@ public class FireArrowDataGenerator implements DataGeneratorEntrypoint {
                             .criterion(hasItem(Items.FIRE_CHARGE), conditionsFromItem(Items.FIRE_CHARGE))
                             .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
                             .offerTo(exporter);
+
+                    // Fireball Arrow: Fire Charge + Gunpowder + Arrow
+                    // ShapelessRecipeJsonBuilder
+                    // .create(itemLookup, RecipeCategory.COMBAT, FireArrow.FIREBALL_ARROW)
+                    // .input(Items.FIRE_CHARGE)
+                    // .input(Items.GUNPOWDER)
+                    // .input(Items.ARROW)
+                    // .criterion(hasItem(Items.FIRE_CHARGE), conditionsFromItem(Items.FIRE_CHARGE))
+                    // .criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER))
+                    // .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
+                    // .offerTo(exporter);
+
+                    ShapedRecipeJsonBuilder
+                            .create(itemLookup, RecipeCategory.COMBAT, FireArrow.FIREBALL_ARROW)
+                            .pattern("AF ") // 第一行：火焰弹
+                            .pattern(" P ") // 第二行：火药
+                            .pattern("   ") // 第三行：箭
+                            .input('F', Items.FIRE_CHARGE) // 定义 F 代表火焰弹
+                            .input('P', Items.GUNPOWDER) // 定义 P 代表火药
+                            .input('A', Items.ARROW) // 定义 A 代表箭
+                            .criterion(hasItem(Items.FIRE_CHARGE), conditionsFromItem(Items.FIRE_CHARGE))
+                            .criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER))
+                            .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
+                            .offerTo(exporter);
                 }
             };
+
         }
 
         @Override
@@ -94,7 +121,8 @@ public class FireArrowDataGenerator implements DataGeneratorEntrypoint {
             // 核心代码：将你的自定义箭添加到 minecraft:arrows 标签
             valueLookupBuilder(ItemTags.ARROWS)
                     .add(FireArrow.EXPLOSIVE_ARROW)
-                    .add(FireArrow.SMALL_FIREBALL_ARROW);
+                    .add(FireArrow.SMALL_FIREBALL_ARROW)
+                    .add(FireArrow.FIREBALL_ARROW);
         }
 
         @Override

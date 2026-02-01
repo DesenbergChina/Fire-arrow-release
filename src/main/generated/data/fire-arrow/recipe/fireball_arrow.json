@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": "minecraft:arrow",
+    "F": "minecraft:fire_charge",
+    "P": "minecraft:gunpowder"
+  },
+  "pattern": [
+    "AF ",
+    " P ",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "fire-arrow:fireball_arrow"
+  }
+}

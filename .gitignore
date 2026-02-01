@@ -40,7 +40,7 @@ replay_*.log
 *.jfr
 
 # markdown
-md/
+docs/md/
 .github/copilot-instructions.md
 
 # 资源项目
