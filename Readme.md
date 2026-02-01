@@ -1,6 +1,6 @@
 # FireArrow
 
-English(Readme_EN.md)
+[English](Readme_EN.md)
 
 ## mod说明
 
@@ -22,6 +22,10 @@ English(Readme_EN.md)
 *所以就索性做成两种箭了，一个爆炸，一个小火球*
 
 ---
+
+## mod下载
+
+往右看，项目简介下面有一个[发行版](https://gitee.com/desenberg/fire-arrow-release/releases)，点击它就可以下载。
 
 ## 许可证说明
 本模组采用「代码+资源分离授权」方案：
