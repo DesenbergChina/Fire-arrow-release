@@ -136,7 +136,7 @@ publishMods {
 	}
 
     changelog = content
-    type = ALPHA
+    type = STABLE
 	file = remapJar.archiveFile
     modLoaders.add("fabric")
 	// The display name/release title, this defaults to the Gradle project name + version
@@ -162,7 +162,7 @@ publishMods {
 
         // Optionally update the project description after publishing a file
         // This can be useful if you want to sync your Github readme with the Modrinth project description
-		projectDescription = providers.fileContents(layout.projectDirectory.file("Readme.md")).asText
+		projectDescription = providers.fileContents(layout.projectDirectory.file("docs/description.md")).asText
  
         // You can specify a range of Minecraft versions like so:
         /*

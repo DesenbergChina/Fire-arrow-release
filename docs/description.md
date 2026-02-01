@@ -1,10 +1,12 @@
 # FireArrow
 ## Mod Description
-A vanilla-style mod adhering to the philosophy of *"Less is More"*. It adds just two practical new arrows to the game, yet brings more fun to your adventures!
+A vanilla-style mod adhering to the philosophy of *"Less is More"*. It adds just a few practical new arrows to the game, yet brings more fun to your adventures!
 
-**Explosive Arrow**: Triggers a small explosion on impact, ideal for taking on groups of mobs without damaging the terrain.
+- **Explosive Arrow**: Triggers a small explosion on impact, ideal for taking on groups of mobs without damaging the terrain.
 
-**Small Fireball Arrow(Fire Charge Arrow)**: Launches a homing fire charge that chases enemies, dealing fire damage with stunning visual effects.
+- **Small Fireball Arrow(Fire Charge Arrow)**: Launches a homing fire charge that chases enemies, dealing fire damage with stunning visual effects.
+
+- **Fireball Arrow**: Launches fireballs (like a Ghast) that home in on enemies
 
 Fully aligned with vanilla gameplay logic, no extra complicated mechanics—this mod enriches your bow with more tactical options through pure, straightforward new content.
 
@@ -40,19 +42,20 @@ Licensed under the **CC-BY-NC-ND 4.0 License** ([full text included in the proje
 *Note: Contact the author first for any modified or commercial use of the resources. Contact information is included [in the project](https://gitee.com/desenberg/fire-arrow-release/blob/main/src/main/resources/assets/fire-arrow/LICENSE_ASSETS.md).*
 
 ## Future Development & To-Do List
-- Supplement mod homepage information
-- Complete code repository documentation
-- Develop the Fireball Arrow
+- ~~- Supplement mod homepage information~~
+- ~~Complete code repository documentation~~
+- ~~Develop the Fireball Arrow~~
 
 
 # 中文描述
 
 ## mod说明
 
-一款秉持 “少即是多” 理念的原版向模组，仅新增两种实用新箭，却让冒险更具趣味！
+一款秉持 “少即是多” 理念的原版向模组，仅新增一些贴近原版的实用新箭，却让冒险更具趣味！
 
 - 爆炸箭：击中目标后触发小型爆炸，高效应对集群怪物，~~不破坏地形~~
 - 小火球箭：发射小火球追击敌人，自带火焰伤害与视觉特效。
+- 火球箭：发射火球（就像恶魂一样）追击敌人，自带火焰伤害与视觉特效。
 
 全程贴合原版玩法逻辑，无需额外复杂设定，用最纯粹的新增内容，为你的弓箭增添更多战术选择～
 
@@ -86,4 +89,4 @@ Licensed under the **CC-BY-NC-ND 4.0 License** ([full text included in the proje
 
 1. ~~主页信息补充~~
 2. ~~代码库信息补充~~
-3. 开发(大)火球箭
+3. ~~开发(大)火球箭~~
