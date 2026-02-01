@@ -143,12 +143,12 @@ publishMods {
     //displayName = "My Mod"
 
 	    // --- 新增调试代码 ---
-    def cfToken = providers.gradleProperty("curseforgeToken").getOrNull()
-    if (cfToken) {
-        println "✅ 成功读取 curseforgeToken (长度: ${cfToken.length()})"
-    } else {
-        println "❌ 未找到 curseforgeToken！请检查 C:\\Users\\用户名\\.gradle\\gradle.properties"
-    }
+    // def cfToken = providers.gradleProperty("curseforgeToken").getOrNull()
+    // if (cfToken) {
+    //     println "✅ 成功读取 curseforgeToken (长度: ${cfToken.length()})"
+    // } else {
+    //     println "❌ 未找到 curseforgeToken！请检查 C:\\Users\\用户名\\.gradle\\gradle.properties"
+    // }
 
 
 	modrinth {
