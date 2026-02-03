@@ -1,4 +1,11 @@
 # FireArrow
+
+---
+
+If you download and enjoy this mod, please give it a star ⭐!
+
+---
+
 ## Mod Description
 A vanilla-style mod adhering to the philosophy of *"Less is More"*. It adds just a few practical new arrows to the game, yet brings more fun to your adventures!
 
@@ -42,12 +49,19 @@ Licensed under the **CC-BY-NC-ND 4.0 License** ([full text included in the proje
 *Note: Contact the author first for any modified or commercial use of the resources. Contact information is included [in the project](https://gitee.com/desenberg/fire-arrow-release/blob/main/src/main/resources/assets/fire-arrow/LICENSE_ASSETS.md).*
 
 ## Future Development & To-Do List
+
 - ~~- Supplement mod homepage information~~
 - ~~Complete code repository documentation~~
 - ~~Develop the Fireball Arrow~~
 
 
 # 中文描述
+
+---
+
+如果你下载并喜欢本模组，请给我点个star⭐吧！
+
+---
 
 ## mod说明
 
