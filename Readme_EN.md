@@ -30,6 +30,10 @@ I suddenly realized that fire charges have extremely limited use cases in the va
 
 ---
 
+## Mod download
+
+click [here](https://gitee.com/desenberg/fire-arrow-release/releases) to download.
+
 ## License Information
 This mod adopts a **separated licensing scheme for code and resources**:
 
