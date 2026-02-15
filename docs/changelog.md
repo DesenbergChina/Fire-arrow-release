@@ -1,4 +1,4 @@
-# Firearrow 0.10.0-rc
+# Firearrow 0.10.0-rc.1
 
 ## Fix textures error
 
