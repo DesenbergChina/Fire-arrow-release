@@ -57,3 +57,4 @@ Licensed under the **CC-BY-NC-ND 4.0 License** ([full text included in the proje
 - ~~- Supplement mod homepage information~~
 - ~~Complete code repository documentation~~
 - ~~Develop the Fireball Arrow~~
+- Develop Bed Arrow

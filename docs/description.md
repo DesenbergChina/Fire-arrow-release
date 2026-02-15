@@ -2,7 +2,7 @@
 
 ---
 
-If you download and enjoy this mod, please give it a star ⭐!
+If you download and enjoy this mod, please give it a star ⭐ or Follow 💗 or Bookmark 🔖!
 
 ---
 
@@ -53,13 +53,14 @@ Licensed under the **CC-BY-NC-ND 4.0 License** ([full text included in the proje
 - ~~- Supplement mod homepage information~~
 - ~~Complete code repository documentation~~
 - ~~Develop the Fireball Arrow~~
+- Develop Bed Arrow
 
 
 # 中文描述
 
 ---
 
-如果你下载并喜欢本模组，请给我点个star⭐吧！
+如果你下载并喜欢本模组，请给我点个star⭐或者关注💗和收藏🔖吧！
 
 ---
 
@@ -104,3 +105,4 @@ Licensed under the **CC-BY-NC-ND 4.0 License** ([full text included in the proje
 1. ~~主页信息补充~~
 2. ~~代码库信息补充~~
 3. ~~开发(大)火球箭~~
+4. 开发床箭

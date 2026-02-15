@@ -62,9 +62,9 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	modRuntimeOnly "maven.modrinth:modmenu:${project.modmenu_version}"
 	modRuntimeOnly "maven.modrinth:placeholder-api:${project.placeholder_api_version}"
-	//modImplementation "maven.modrinth:cloth-config:${project.cloth_config_version}"
-	// modImplementation "maven.modrinth:wthit:${project.wthit_version}"
-	// modImplementation "maven.modrinth:badpackets:${project.badpackets_version}"
+	//modRuntimeOnly "maven.modrinth:cloth-config:${project.cloth_config_version}"
+	 modRuntimeOnly "maven.modrinth:wthit:${project.wthit_version}"
+	 modRuntimeOnly "maven.modrinth:badpackets:${project.badpackets_version}"
 }
 
 
