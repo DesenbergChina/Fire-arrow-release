@@ -1,4 +1,12 @@
 /*
+ * @Author: Desenberg
+ * @Date: 2026-02-03 15:49:56
+ * @LastEditors: Desenberg
+ * @Description: 
+ * Email: desenberg@163.com
+ * Copyright (c) 2026 by Desenberg, All Rights Reserved.
+ */
+/*
  * Author: DesenbergChina(Yes_Muscle)
  * Date: 2026-01-23 19:55:03
  * LastEditors: DesenbergChina(Yes_Muscle)
@@ -20,6 +28,7 @@ import net.minecraft.data.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.data.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -98,6 +107,31 @@ public class FireArrowDataGenerator implements DataGeneratorEntrypoint {
                             .criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER))
                             .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
                             .offerTo(exporter);
+
+                    // Bed Arrow: Bed + Arrow
+                    ShapelessRecipeJsonBuilder
+                            .create(itemLookup, RecipeCategory.COMBAT, FireArrow.BED_ARROW)
+                            .input(Ingredient.ofItems(
+                                    Items.WHITE_BED,
+                                    Items.ORANGE_BED,
+                                    Items.MAGENTA_BED,
+                                    Items.LIGHT_BLUE_BED,
+                                    Items.YELLOW_BED,
+                                    Items.LIME_BED,
+                                    Items.PINK_BED,
+                                    Items.GRAY_BED,
+                                    Items.LIGHT_GRAY_BED,
+                                    Items.CYAN_BED,
+                                    Items.PURPLE_BED,
+                                    Items.BLUE_BED,
+                                    Items.BROWN_BED,
+                                    Items.GREEN_BED,
+                                    Items.RED_BED,
+                                    Items.BLACK_BED))
+                            .input(Items.ARROW)
+                            .criterion("has_bed", conditionsFromTag(ItemTags.BEDS))
+                            .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
+                            .offerTo(exporter);
                 }
             };
 
@@ -122,7 +156,8 @@ public class FireArrowDataGenerator implements DataGeneratorEntrypoint {
             valueLookupBuilder(ItemTags.ARROWS)
                     .add(FireArrow.EXPLOSIVE_ARROW)
                     .add(FireArrow.SMALL_FIREBALL_ARROW)
-                    .add(FireArrow.FIREBALL_ARROW);
+                    .add(FireArrow.FIREBALL_ARROW)
+                    .add(FireArrow.BED_ARROW);
         }
 
         @Override

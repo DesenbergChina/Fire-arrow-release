@@ -1,0 +1,43 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_arrow": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": "minecraft:arrow"
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_bed": {
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "minecraft:beds"
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+            "conditions": {
+                "recipe": "fire-arrow:bed_arrow"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+        }
+    },
+    "requirements": [
+        [
+            "has_the_recipe",
+            "has_bed",
+            "has_arrow"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "fire-arrow:bed_arrow"
+        ]
+    }
+}

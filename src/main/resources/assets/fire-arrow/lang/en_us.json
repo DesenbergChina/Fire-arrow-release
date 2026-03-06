@@ -1,8 +1,10 @@
 {
   "item.fire-arrow.explosive_arrow": "Explosive Arrow",
-  "item.fire-arrow.small_fireball_arrow": "Smallfireball Arrow",
+  "item.fire-arrow.small_fireball_arrow": "Small Fireball Arrow",
   "item.fire-arrow.fireball_arrow": "Fireball Arrow",
+  "item.fire-arrow.bed_arrow": "Bed Arrow",
   "entity.fire-arrow.explosive_arrow": "Explosive Arrow",
-  "entity.fire-arrow.small_fireball_arrow": "Smallfireball Arrow",
-  "entity.fire-arrow.fireball_arrow": "Fireball Arrow"
+  "entity.fire-arrow.small_fireball_arrow": "Small Fireball Arrow",
+  "entity.fire-arrow.fireball_arrow": "Fireball Arrow",
+  "entity.fire-arrow.bed_arrow": "Bed Arrow"
 }

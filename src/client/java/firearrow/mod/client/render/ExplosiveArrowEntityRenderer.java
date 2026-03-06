@@ -24,7 +24,6 @@ public class ExplosiveArrowEntityRenderer extends ArrowEntityRenderer {
         super(context);
     }
 
-    // [!code focus] 方法签名修改：参数由 Entity 变为 State
     @Override
     public Identifier getTexture(ArrowEntityRenderState state) {
         return TEXTURE;
