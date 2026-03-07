@@ -1,11 +1,11 @@
-# Firearrow 0.11.0-beta
+# FireArrow 0.11.0-beta
 
 ## Added Bed Arrow
 
-- You can now use it to bombard in the Nether and the End!
+- You can try to use it in the Nether and the End.(Haha! Something fun is gonna happen.)
 
 ---
 
 ## 增加床箭
 
-- 可以在下界和末地用它轰炸啦！
+- 你可以尝试在下界和末地使用它。（哈哈！会发生什么有趣的事捏？）

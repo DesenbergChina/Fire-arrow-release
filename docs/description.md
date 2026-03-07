@@ -15,7 +15,7 @@ A vanilla-style mod adhering to the philosophy of *"Less is More"*. It adds just
 
 - **Fireball Arrow**: Launches fireballs (like a Ghast) that home in on enemies.
 
-- **bed arrow**: you can try to use it  in the Nether and the End.(Haha! Something fun is gonna happen.)
+- **bed arrow**: you can try to use it in the Nether and the End.(Haha! Something fun is gonna happen.)
 
 Fully aligned with vanilla gameplay logic, no extra complicated mechanics—this mod enriches your bow with more tactical options through pure, straightforward new content.
 
