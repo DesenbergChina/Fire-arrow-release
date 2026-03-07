@@ -136,7 +136,7 @@ publishMods {
 	}
 
     changelog = content
-    type = STABLE
+    type = BETA
 	file = remapJar.archiveFile
     modLoaders.add("fabric")
 	// The display name/release title, this defaults to the Gradle project name + version

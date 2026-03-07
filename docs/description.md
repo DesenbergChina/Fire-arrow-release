@@ -13,7 +13,9 @@ A vanilla-style mod adhering to the philosophy of *"Less is More"*. It adds just
 
 - **Small Fireball Arrow(Fire Charge Arrow)**: Launches a homing fire charge that chases enemies, dealing fire damage with stunning visual effects.
 
-- **Fireball Arrow**: Launches fireballs (like a Ghast) that home in on enemies
+- **Fireball Arrow**: Launches fireballs (like a Ghast) that home in on enemies.
+
+- **bed arrow**: you can try to use it  in the Nether and the End.(Haha! Something fun is gonna happen.)
 
 Fully aligned with vanilla gameplay logic, no extra complicated mechanics—this mod enriches your bow with more tactical options through pure, straightforward new content.
 
@@ -53,7 +55,8 @@ Licensed under the **CC-BY-NC-ND 4.0 License** ([full text included in the proje
 - ~~- Supplement mod homepage information~~
 - ~~Complete code repository documentation~~
 - ~~Develop the Fireball Arrow~~
-- Develop Bed Arrow
+- ~~- Develop Bed Arrow~~
+
 
 
 # 中文描述
@@ -71,6 +74,7 @@ Licensed under the **CC-BY-NC-ND 4.0 License** ([full text included in the proje
 - 爆炸箭：击中目标后触发小型爆炸，高效应对集群怪物，~~不破坏地形~~
 - 小火球箭：发射小火球追击敌人，自带火焰伤害与视觉特效。
 - 火球箭：发射火球（就像恶魂一样）追击敌人，自带火焰伤害与视觉特效。
+- 床箭：你可以尝试在下界和末地使用它。（哈哈！会发生什么有趣的事捏？）
 
 全程贴合原版玩法逻辑，无需额外复杂设定，用最纯粹的新增内容，为你的弓箭增添更多战术选择～
 
@@ -105,4 +109,4 @@ Licensed under the **CC-BY-NC-ND 4.0 License** ([full text included in the proje
 1. ~~主页信息补充~~
 2. ~~代码库信息补充~~
 3. ~~开发(大)火球箭~~
-4. 开发床箭
+4. ~~开发床箭~~

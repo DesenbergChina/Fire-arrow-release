@@ -1,11 +1,11 @@
-# Firearrow 0.10.0-rc.1
+# Firearrow 0.11.0-beta
 
-## Fix textures error
+## Added Bed Arrow
 
-- Fixed the incorrect texture for the Fireball Arrow,it was incorrectly using the same texture as the Small Fire Arrow.They can now be easily distinguished by the distinct red dots on both the tail and head of the arrow.
+- You can now use it to bombard in the Nether and the End!
 
 ---
 
-## 修复材质错误
+## 增加床箭
 
-- 将新的火球箭的材质修正为正确的新材质，原本火球箭材质和小火球箭材质错误的相同。现在你可以通过明显的箭矢尾部的红色点和头部的红色点区分他们。
+- 可以在下界和末地用它轰炸啦！
