@@ -1,5 +1,5 @@
 plugins {
-	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
 	id "me.modmuss50.mod-publish-plugin" version "1.1.0"
 }
@@ -55,16 +55,16 @@ fabricApi {
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	modRuntimeOnly "maven.modrinth:modmenu:${project.modmenu_version}"
-	modRuntimeOnly "maven.modrinth:placeholder-api:${project.placeholder_api_version}"
-	//modRuntimeOnly "maven.modrinth:cloth-config:${project.cloth_config_version}"
-	 modRuntimeOnly "maven.modrinth:wthit:${project.wthit_version}"
-	 modRuntimeOnly "maven.modrinth:badpackets:${project.badpackets_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	// RuntimeOnly "maven.modrinth:modmenu:${project.modmenu_version}"
+	// RuntimeOnly "maven.modrinth:placeholder-api:${project.placeholder_api_version}"
+	// //modRuntimeOnly "maven.modrinth:cloth-config:${project.cloth_config_version}"
+	// RuntimeOnly "maven.modrinth:wthit:${project.wthit_version}"
+	// RuntimeOnly "maven.modrinth:badpackets:${project.badpackets_version}"
 }
 
 
@@ -85,7 +85,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 25
 }
 
 java {
@@ -94,8 +94,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
 }
 
 jar {
@@ -137,7 +137,7 @@ publishMods {
 
     changelog = content
     type = BETA
-	file = remapJar.archiveFile
+	file = jar.archiveFile
     modLoaders.add("fabric")
 	// The display name/release title, this defaults to the Gradle project name + version
     //displayName = "My Mod"

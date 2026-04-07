@@ -9,21 +9,21 @@
 package firearrow.mod.item;
 
 import firearrow.mod.entity.BedArrowEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.item.ArrowItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.item.ArrowItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 public class BedArrowItem extends ArrowItem {
-    public BedArrowItem(Item.Settings settings) {
+    public BedArrowItem(Item.Properties settings) {
         super(settings);
     }
 
     @Override
-    public PersistentProjectileEntity createArrow(World world, ItemStack stack, LivingEntity shooter,
+    public AbstractArrow createArrow(Level world, ItemStack stack, LivingEntity shooter,
             @Nullable ItemStack weaponStack) {
         return new BedArrowEntity(world, shooter, stack.copyWithCount(1), weaponStack);
     }

@@ -9,45 +9,45 @@
 package firearrow.mod.entity;
 
 import firearrow.mod.FireArrow;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.world.World;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.arrow.Arrow;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-public class BedArrowEntity extends ArrowEntity {
+public class BedArrowEntity extends Arrow {
 
-    public BedArrowEntity(EntityType<? extends BedArrowEntity> entityType, World world) {
+    public BedArrowEntity(EntityType<? extends BedArrowEntity> entityType, Level world) {
         super(entityType, world);
     }
 
-    public BedArrowEntity(World world, LivingEntity owner, ItemStack stack, @Nullable ItemStack shotFrom) {
+    public BedArrowEntity(Level world, LivingEntity owner, ItemStack stack, @Nullable ItemStack shotFrom) {
         super(FireArrow.BED_ARROW_ENTITY, world);
         this.setOwner(owner);
-        this.setPosition(owner.getX(), owner.getEyeY() - 0.1, owner.getZ());
+        this.setPos(owner.getX(), owner.getEyeY() - 0.1, owner.getZ());
     }
 
     @Override
-    protected ItemStack getDefaultItemStack() {
+    protected ItemStack getDefaultPickupItem() {
         return new ItemStack(FireArrow.BED_ARROW);
     }
 
     @Override
-    protected void onBlockHit(BlockHitResult blockHitResult) {
-        super.onBlockHit(blockHitResult);
+    protected void onHitBlock(BlockHitResult blockHitResult) {
+        super.onHitBlock(blockHitResult);
 
-        if (this.getEntityWorld().isClient()) {
+        if (this.level().isClientSide()) {
             return;
         }
 
-        RegistryKey<World> worldKey = this.getEntityWorld().getRegistryKey();
-        if (worldKey == World.NETHER || worldKey == World.END) {
+        ResourceKey<Level> worldKey = this.level().dimension();
+        if (worldKey == Level.NETHER || worldKey == Level.END) {
             // Match bed-like behavior: strong explosion when used in Nether/End.
-            this.getEntityWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), 5.0F,
-                    World.ExplosionSourceType.BLOCK);
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 5.0F,
+                    Level.ExplosionInteraction.BLOCK);
             this.discard();
         }
     }
