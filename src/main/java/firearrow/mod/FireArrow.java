@@ -18,7 +18,7 @@ import firearrow.mod.item.SmallfireballArrowItem;
 import firearrow.mod.item.FireballArrowItem;
 import firearrow.mod.item.BedArrowItem;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -54,7 +54,8 @@ public class FireArrow implements ModInitializer {
 			Identifier.fromNamespaceAndPath(MOD_ID, "bed_arrow"));
 
 	// Entities Keys
-	public static final ResourceKey<EntityType<?>> EXPLOSIVE_ARROW_ENTITY_KEY = ResourceKey.create(Registries.ENTITY_TYPE,
+	public static final ResourceKey<EntityType<?>> EXPLOSIVE_ARROW_ENTITY_KEY = ResourceKey.create(
+			Registries.ENTITY_TYPE,
 			Identifier.fromNamespaceAndPath(MOD_ID, "explosive_arrow"));
 	public static final ResourceKey<EntityType<?>> SMALL_FIREBALL_ARROW_ENTITY_KEY = ResourceKey.create(
 			Registries.ENTITY_TYPE,
@@ -135,7 +136,7 @@ public class FireArrow implements ModInitializer {
 		 * "small_fireball_arrow"), SMALL_FIREBALL_ARROW_ENTITY);
 		 */
 		// Add to item group
-		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(entries -> {
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> {
 			entries.accept(EXPLOSIVE_ARROW);
 			entries.accept(SMALL_FIREBALL_ARROW);
 			entries.accept(FIREBALL_ARROW);

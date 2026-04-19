@@ -1,11 +1,7 @@
-# FireArrow 0.11.0-beta
+# Firearrow 0.12.0
 
-## Added Bed Arrow
-
-- You can try to use it in the Nether and the End.(Haha! Something fun is gonna happen.)
+## Adapt to version 26.1.1
 
 ---
 
-## 增加床箭
-
-- 你可以尝试在下界和末地使用它。（哈哈！会发生什么有趣的事捏？）
+## 适配 26.1.1版本

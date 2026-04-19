@@ -8,22 +8,29 @@
  */
 package firearrow.mod.client.render;
 
-import net.minecraft.client.render.entity.ArrowEntityRenderer;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.state.ArrowEntityRenderState;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.renderer.entity.ArrowRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.state.ArrowRenderState;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import org.jetbrains.annotations.NotNull;
 
-public class BedArrowEntityRenderer extends ArrowEntityRenderer {
+public class BedArrowEntityRenderer extends ArrowRenderer<AbstractArrow, ArrowRenderState> {
 
     // Use custom bed arrow texture from the Fire Arrow mod resources.
-    public static final Identifier TEXTURE = Identifier.of("fire-arrow", "textures/entity/bed_arrow.png");
+    public static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("fire-arrow", "textures/entity/bed_arrow.png");
 
-    public BedArrowEntityRenderer(EntityRendererFactory.Context context) {
+    public BedArrowEntityRenderer(EntityRendererProvider.Context context) {
         super(context);
     }
 
     @Override
-    public Identifier getTexture(ArrowEntityRenderState state) {
+    protected @NotNull Identifier getTextureLocation(ArrowRenderState state) {
         return TEXTURE;
+    }
+
+    @Override
+    public @NotNull ArrowRenderState createRenderState() {
+        return new ArrowRenderState();
     }
 }

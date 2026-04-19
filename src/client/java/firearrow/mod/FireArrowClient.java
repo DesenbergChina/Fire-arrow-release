@@ -13,19 +13,17 @@ import firearrow.mod.client.render.SmallfireballArrowEntityRenderer;
 import firearrow.mod.client.render.FireballArrowEntityRenderer;
 import firearrow.mod.client.render.BedArrowEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
-//import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-//import net.minecraft.client.render.entity.ArrowEntityRenderer; 
-import net.minecraft.client.render.entity.EntityRendererFactories;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 
 public class FireArrowClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         // 注册实体渲染器
         // 使用 ArrowEntityRenderer 代替 TippableArrowEntityRenderer
-        EntityRendererFactories.register(FireArrow.EXPLOSIVE_ARROW_ENTITY, ExplosiveArrowEntityRenderer::new);
-        EntityRendererFactories.register(FireArrow.SMALL_FIREBALL_ARROW_ENTITY, SmallfireballArrowEntityRenderer::new);
-        EntityRendererFactories.register(FireArrow.FIREBALL_ARROW_ENTITY, FireballArrowEntityRenderer::new);
-        EntityRendererFactories.register(FireArrow.BED_ARROW_ENTITY, BedArrowEntityRenderer::new);
+        EntityRenderers.register(FireArrow.EXPLOSIVE_ARROW_ENTITY, ExplosiveArrowEntityRenderer::new);
+        EntityRenderers.register(FireArrow.SMALL_FIREBALL_ARROW_ENTITY, SmallfireballArrowEntityRenderer::new);
+        EntityRenderers.register(FireArrow.FIREBALL_ARROW_ENTITY, FireballArrowEntityRenderer::new);
+        EntityRenderers.register(FireArrow.BED_ARROW_ENTITY, BedArrowEntityRenderer::new);
 
         // 注意：
         // 1. ArrowEntityRenderer 适用于继承自 ArrowEntity 的实体。

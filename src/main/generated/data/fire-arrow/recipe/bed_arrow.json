@@ -1,29 +1,11 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "category": "equipment",
-    "ingredients": [
-        [
-            "minecraft:white_bed",
-            "minecraft:orange_bed",
-            "minecraft:magenta_bed",
-            "minecraft:light_blue_bed",
-            "minecraft:yellow_bed",
-            "minecraft:lime_bed",
-            "minecraft:pink_bed",
-            "minecraft:gray_bed",
-            "minecraft:light_gray_bed",
-            "minecraft:cyan_bed",
-            "minecraft:purple_bed",
-            "minecraft:blue_bed",
-            "minecraft:brown_bed",
-            "minecraft:green_bed",
-            "minecraft:red_bed",
-            "minecraft:black_bed"
-        ],
-        "minecraft:arrow"
-    ],
-    "result": {
-        "count": 1,
-        "id": "fire-arrow:bed_arrow"
-    }
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "#minecraft:beds",
+    "minecraft:arrow"
+  ],
+  "result": {
+    "id": "fire-arrow:bed_arrow"
+  }
 }

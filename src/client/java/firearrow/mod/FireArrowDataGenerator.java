@@ -19,21 +19,15 @@ package firearrow.mod;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.data.recipe.RecipeExporter;
-import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.data.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.data.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.RegistryEntryLookup;
-import net.minecraft.registry.tag.ItemTags;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -52,37 +46,32 @@ public class FireArrowDataGenerator implements DataGeneratorEntrypoint {
 
     // ========== 配方生成器 (你已有的代码) ==========
     static class FireArrowRecipeProvider extends FabricRecipeProvider {
-        public FireArrowRecipeProvider(FabricDataOutput output,
-                CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        public FireArrowRecipeProvider(FabricPackOutput output,
+                CompletableFuture<HolderLookup.Provider> registriesFuture) {
             super(output, registriesFuture);
         }
 
         @Override
-        protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registries,
-                RecipeExporter exporter) {
-
-            return new RecipeGenerator(registries, exporter) {
+        protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries,
+                RecipeOutput output) {
+            return new RecipeProvider(registries, output) {
                 @Override
-                public void generate() {
-                    RegistryEntryLookup<Item> itemLookup = registries.getOrThrow(RegistryKeys.ITEM);
-
+                public void buildRecipes() {
                     // Explosive Arrow: Gunpowder + Arrow
-                    ShapelessRecipeJsonBuilder
-                            .create(itemLookup, RecipeCategory.COMBAT, FireArrow.EXPLOSIVE_ARROW)
-                            .input(Items.GUNPOWDER)
-                            .input(Items.ARROW)
-                            .criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER))
-                            .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
-                            .offerTo(exporter);
+                    shapeless(RecipeCategory.COMBAT, FireArrow.EXPLOSIVE_ARROW)
+                            .requires(Items.GUNPOWDER)
+                            .requires(Items.ARROW)
+                            .unlockedBy(getHasName(Items.GUNPOWDER), has(Items.GUNPOWDER))
+                            .unlockedBy(getHasName(Items.ARROW), has(Items.ARROW))
+                            .save(output);
 
                     // Smallfireball Arrow: Fire Charge + Arrow
-                    ShapelessRecipeJsonBuilder
-                            .create(itemLookup, RecipeCategory.COMBAT, FireArrow.SMALL_FIREBALL_ARROW)
-                            .input(Items.FIRE_CHARGE)
-                            .input(Items.ARROW)
-                            .criterion(hasItem(Items.FIRE_CHARGE), conditionsFromItem(Items.FIRE_CHARGE))
-                            .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
-                            .offerTo(exporter);
+                    shapeless(RecipeCategory.COMBAT, FireArrow.SMALL_FIREBALL_ARROW)
+                            .requires(Items.FIRE_CHARGE)
+                            .requires(Items.ARROW)
+                            .unlockedBy(getHasName(Items.FIRE_CHARGE), has(Items.FIRE_CHARGE))
+                            .unlockedBy(getHasName(Items.ARROW), has(Items.ARROW))
+                            .save(output);
 
                     // Fireball Arrow: Fire Charge + Gunpowder + Arrow
                     // ShapelessRecipeJsonBuilder
@@ -95,43 +84,25 @@ public class FireArrowDataGenerator implements DataGeneratorEntrypoint {
                     // .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
                     // .offerTo(exporter);
 
-                    ShapedRecipeJsonBuilder
-                            .create(itemLookup, RecipeCategory.COMBAT, FireArrow.FIREBALL_ARROW)
+                    shaped(RecipeCategory.COMBAT, FireArrow.FIREBALL_ARROW)
                             .pattern("AF ") // 第一行：火焰弹
                             .pattern(" P ") // 第二行：火药
                             .pattern("   ") // 第三行：箭
-                            .input('F', Items.FIRE_CHARGE) // 定义 F 代表火焰弹
-                            .input('P', Items.GUNPOWDER) // 定义 P 代表火药
-                            .input('A', Items.ARROW) // 定义 A 代表箭
-                            .criterion(hasItem(Items.FIRE_CHARGE), conditionsFromItem(Items.FIRE_CHARGE))
-                            .criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER))
-                            .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
-                            .offerTo(exporter);
+                            .define('F', Items.FIRE_CHARGE) // 定义 F 代表火焰弹
+                            .define('P', Items.GUNPOWDER) // 定义 P 代表火药
+                            .define('A', Items.ARROW) // 定义 A 代表箭
+                            .unlockedBy(getHasName(Items.FIRE_CHARGE), has(Items.FIRE_CHARGE))
+                            .unlockedBy(getHasName(Items.GUNPOWDER), has(Items.GUNPOWDER))
+                            .unlockedBy(getHasName(Items.ARROW), has(Items.ARROW))
+                            .save(output);
 
                     // Bed Arrow: Bed + Arrow
-                    ShapelessRecipeJsonBuilder
-                            .create(itemLookup, RecipeCategory.COMBAT, FireArrow.BED_ARROW)
-                            .input(Ingredient.ofItems(
-                                    Items.WHITE_BED,
-                                    Items.ORANGE_BED,
-                                    Items.MAGENTA_BED,
-                                    Items.LIGHT_BLUE_BED,
-                                    Items.YELLOW_BED,
-                                    Items.LIME_BED,
-                                    Items.PINK_BED,
-                                    Items.GRAY_BED,
-                                    Items.LIGHT_GRAY_BED,
-                                    Items.CYAN_BED,
-                                    Items.PURPLE_BED,
-                                    Items.BLUE_BED,
-                                    Items.BROWN_BED,
-                                    Items.GREEN_BED,
-                                    Items.RED_BED,
-                                    Items.BLACK_BED))
-                            .input(Items.ARROW)
-                            .criterion("has_bed", conditionsFromTag(ItemTags.BEDS))
-                            .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
-                            .offerTo(exporter);
+                    shapeless(RecipeCategory.COMBAT, FireArrow.BED_ARROW)
+                            .requires(ItemTags.BEDS)
+                            .requires(Items.ARROW)
+                            .unlockedBy("has_bed", has(ItemTags.BEDS))
+                            .unlockedBy(getHasName(Items.ARROW), has(Items.ARROW))
+                            .save(output);
                 }
             };
 
@@ -144,14 +115,14 @@ public class FireArrowDataGenerator implements DataGeneratorEntrypoint {
     }
 
     // ========== [!code ++] 标签生成器 (新增的代码) ==========
-    static class FireArrowItemTagProvider extends FabricTagProvider.ItemTagProvider {
-        public FireArrowItemTagProvider(FabricDataOutput output,
-                CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    static class FireArrowItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
+        public FireArrowItemTagProvider(FabricPackOutput output,
+                CompletableFuture<HolderLookup.Provider> registriesFuture) {
             super(output, registriesFuture);
         }
 
         @Override
-        protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        protected void addTags(HolderLookup.Provider provider) {
             // 核心代码：将你的自定义箭添加到 minecraft:arrows 标签
             valueLookupBuilder(ItemTags.ARROWS)
                     .add(FireArrow.EXPLOSIVE_ARROW)
