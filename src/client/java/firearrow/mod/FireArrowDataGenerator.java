@@ -1,18 +1,10 @@
 /*
  * @Author: Desenberg
  * @Date: 2026-02-03 15:49:56
- * @LastEditors: Desenberg
+ * LastEditors: DesenbergChina(Yes_Muscle)
  * @Description: 
  * Email: desenberg@163.com
  * Copyright (c) 2026 by Desenberg, All Rights Reserved.
- */
-/*
- * Author: DesenbergChina(Yes_Muscle)
- * Date: 2026-01-23 19:55:03
- * LastEditors: DesenbergChina(Yes_Muscle)
- * Description: 
- * Email:desenberg@163.com
- * This file is part of Fire Arrow,Licensed under the MIT License (see root/LICENSE file) 
  */
 
 package firearrow.mod;
