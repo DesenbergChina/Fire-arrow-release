@@ -9,7 +9,7 @@ group = project.maven_group
 
 // 定义所有需要的占位符属性
 ext {
-    modmenu_versions = ">=10.0.0" // 补充 modmenu 版本
+    modmenu_versions = ">=17.0.0-beta.2" // 补充 modmenu 版本
     codeLicense = "MIT" // 可选：之前的许可证配置
     assetsLicense = "CC-BY-NC-ND-4.0"
 }
@@ -148,25 +148,26 @@ publishMods {
 	
         accessToken = providers.gradleProperty("modrinthToken")
         projectId = "vU4AEXJI"
-		minecraftVersions.add("26.1.1")
+		// minecraftVersions.add("26.1.1")
+		        // You can specify a range of Minecraft versions like so:
+        
+		minecraftVersionRange {
+            start = "26.1.1"
+            end = "26.1.2" // Set to "latest" to use the latest minecraft version
+            // Optionally include snapshot versions, defaults to false
+            includeSnapshots = false
+        }
+		
 		// Add dependencies to your project
 		requires("fabric-api")
 		optional("modmenu")
 
         // Optionally update the project description after publishing a file
         // This can be useful if you want to sync your Github readme with the Modrinth project description
-		// 每次修改
+		// 每次修改 可能
 		projectDescription = providers.fileContents(layout.projectDirectory.file("docs/description.md")).asText
  
-        // You can specify a range of Minecraft versions like so:
-        /*
-		minecraftVersionRange {
-            start = "26.1.1"
-            end = "26.1.1" // Set to "latest" to use the latest minecraft version
-            // Optionally include snapshot versions, defaults to false
-            includeSnapshots = false
-        }
-		*/
+
  
         // You can specify either the project id OR slug, but not both.
 		/*

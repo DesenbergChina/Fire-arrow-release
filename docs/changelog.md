@@ -1,7 +1,7 @@
-# Firearrow 0.12.0
+# Firearrow 0.12.1
 
-## Adapt to version 26.1.1
+## Adapt to version 26.1.2
 
 ---
 
-## 适配 26.1.1版本
+## 适配 26.1.2 版本
