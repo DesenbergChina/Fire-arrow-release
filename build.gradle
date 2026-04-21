@@ -148,9 +148,9 @@ publishMods {
 	
         accessToken = providers.gradleProperty("modrinthToken")
         projectId = "vU4AEXJI"
-		// minecraftVersions.add("26.1.1")
-		        // You can specify a range of Minecraft versions like so:
-        
+		/// 每次修改
+		// minecraftVersions.add("26.1.1")       
+        // You can specify a range of Minecraft versions like so:
 		minecraftVersionRange {
             start = "26.1.1"
             end = "26.1.2" // Set to "latest" to use the latest minecraft version
