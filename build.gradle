@@ -9,7 +9,7 @@ group = project.maven_group
 
 // 定义所有需要的占位符属性
 ext {
-    modmenu_versions = ">=17.0.0-beta.2" // 补充 modmenu 版本
+    modmenu_versions = ">=20.0.0-beta.4" // 补充 modmenu 版本
     codeLicense = "MIT" // 可选：之前的许可证配置
     assetsLicense = "CC-BY-NC-ND-4.0"
 }
@@ -26,6 +26,8 @@ repositories {
 	// for more information about repositories.
 	 // Modrinth Maven (推荐)
     maven {
+		mavenCentral()
+
         name = "Modrinth"
         url = "https://api.modrinth.com/maven"
         content {
@@ -63,8 +65,8 @@ dependencies {
 	runtimeOnly "maven.modrinth:modmenu:${project.modmenu_version}"
 	// RuntimeOnly "maven.modrinth:placeholder-api:${project.placeholder_api_version}"
 	// //modRuntimeOnly "maven.modrinth:cloth-config:${project.cloth_config_version}"
-	runtimeOnly "maven.modrinth:wthit:${project.wthit_version}"
-	runtimeOnly "maven.modrinth:badpackets:${project.badpackets_version}"
+	//runtimeOnly "maven.modrinth:wthit:${project.wthit_version}"
+	//runtimeOnly "maven.modrinth:badpackets:${project.badpackets_version}"
 }
 
 
@@ -152,8 +154,8 @@ publishMods {
 		// minecraftVersions.add("26.1.1")       
         // You can specify a range of Minecraft versions like so:
 		minecraftVersionRange {
-            start = "26.1.1"
-            end = "26.1.2" // Set to "latest" to use the latest minecraft version
+            start = "26.2"
+            end = "26.2" // Set to "latest" to use the latest minecraft version
             // Optionally include snapshot versions, defaults to false
             includeSnapshots = false
         }
@@ -201,7 +203,7 @@ publishMods {
         accessToken = providers.gradleProperty("curseforgeToken")
         projectId = "1449030"
 		//releaseType = ALPHA
-		minecraftVersions.add("26.1.1")
+		minecraftVersions.add("26.2")
 		// Add dependencies to your project
 		requires("fabric-api")
 		optional("modmenu")
