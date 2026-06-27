@@ -116,11 +116,11 @@ public class FireArrowDataGenerator implements DataGeneratorEntrypoint {
         @Override
         protected void addTags(HolderLookup.Provider provider) {
             // 核心代码：将你的自定义箭添加到 minecraft:arrows 标签
-            valueLookupBuilder(ItemTags.ARROWS)
-                    .add(FireArrow.EXPLOSIVE_ARROW)
-                    .add(FireArrow.SMALL_FIREBALL_ARROW)
-                    .add(FireArrow.FIREBALL_ARROW)
-                    .add(FireArrow.BED_ARROW);
+            builder(ItemTags.ARROWS)
+                .add(FireArrow.EXPLOSIVE_ARROW_KEY)
+                .add(FireArrow.SMALL_FIREBALL_ARROW_KEY)
+                .add(FireArrow.FIREBALL_ARROW_KEY)
+                .add(FireArrow.BED_ARROW_KEY);
         }
 
         @Override
