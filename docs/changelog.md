@@ -1,4 +1,4 @@
-# Firearrow 0.12.2
+# Firearrow 0.13.0
 
 ## Adapt to version 26.2
 
