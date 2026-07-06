@@ -8,6 +8,7 @@ version = project.mod_version
 group = project.maven_group
 
 // 定义所有需要的占位符属性
+// 可能修改
 ext {
     modmenu_versions = ">=20.0.0-beta.4" // 补充 modmenu 版本
     codeLicense = "MIT" // 可选：之前的许可证配置
